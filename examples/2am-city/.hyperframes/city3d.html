@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>2AM City · 3D</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<script type="importmap">
+  { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.181.2/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.181.2/examples/jsm/" } }
+</script>
+<style>
+  :root { --bg:#0b0b0e; --fg:#efe9df; --mt:#8c8779; --ac:#ffb24f; --line:#26252b; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.5 "IBM Plex Mono", ui-monospace, monospace; }
+  header { padding:24px 40px 12px; display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 24px; }
+  h1 { font:italic 300 32px Newsreader, serif; margin:0; }
+  header p { margin:0; color:var(--mt); }
+  .pal a { color:var(--mt); text-decoration:none; border-bottom:1px solid transparent; }
+  .pal a.on { color:var(--ac); border-color:var(--ac); }
+  .stage { position:relative; margin:0 40px; aspect-ratio:16/9; background:#000; border-radius:4px; overflow:hidden; }
+  .stage canvas { position:absolute; inset:0; width:100%; height:100%; }
+  .bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:14px 40px 40px; }
+  .bar button { background:#141418; color:var(--fg); border:1px solid var(--line); border-radius:100px; padding:6px 14px; cursor:pointer; font:inherit; font-size:13px; }
+  .bar button.play { background:var(--ac); color:#1a1206; border-color:var(--ac); font-weight:500; padding:6px 20px; }
+  .bar .t { margin-left:auto; color:var(--mt); font-variant-numeric:tabular-nums; }
+  input[type=range] { flex:1 1 100%; accent-color:var(--ac); }
+</style>
+</head>
+<body>
+<header>
+  <h1>用这首歌盖一座城 · 3D</h1>
+  <p>镜头一直在追它：跟丢，再找到。每一拍吃一颗豆，每句 "Just drive" 是一颗能量豆。</p>
+  <p class="pal">配色：<a href="?palette=blueprint" id="p-blueprint">纯蓝图</a> · <a href="?palette=sodium" id="p-sodium">蓝图 × 钠灯</a></p>
+</header>
+<div class="stage"><canvas id="gl" width="1920" height="1080"></canvas><canvas id="ov" width="1920" height="1080"></canvas></div>
+<div class="bar">
+  <button class="play" id="play">▶ 播放</button>
+  <button data-t="0">开场</button>
+  <button data-t="4.5">第一栋楼</button>
+  <button data-t="20">主歌</button>
+  <button data-t="43">预副歌</button>
+  <button data-t="52">副歌 Just drive</button>
+  <button data-t="83">主歌 2</button>
+  <button data-t="113">副歌 2</button>
+  <button data-t="140.5">桥段 · 熄灯</button>
+  <button data-t="151.8">最终副歌 · 重新亮起</button>
+  <button data-t="172">天亮 · 全景</button>
+  <span class="t" id="clock">0:00 / 3:14</span>
+  <input type="range" id="seek" min="0" max="194" step="0.01" value="0">
+</div>
+<audio id="au" src="../assets/audio/track.mp3" preload="auto"></audio>
+<script src="../assets/song-data.js"></script>
+<script src="../assets/overlay.js"></script>
+<script type="module">
+  import { createCity3D } from "../assets/city3d.js";
+  await Promise.all(["800 40px 'Big Shoulders Display'", "300 20px 'IBM Plex Mono'"].map((f) => document.fonts.load(f)));
+  const palette = new URLSearchParams(location.search).get("palette") || "blueprint";
+  document.getElementById("p-" + palette)?.classList.add("on");
+  const city = createCity3D({ canvas: document.getElementById("gl"), song: SONG, palette });
+  const ov = Overlay2D.create({ song: SONG }), octx = document.getElementById("ov").getContext("2d");
+  const au = document.getElementById("au");
+  window.scrubT = 0; window.city = city;
+  window.renderAt = (t) => { const info = city.renderAt(t); ov.draw(octx, t, info); return info; };
+  const fmt = (s) => Math.floor(s / 60) + ":" + ("0" + Math.floor(s % 60)).slice(-2);
+  function frame() {
+    const t = au.paused ? window.scrubT : au.currentTime;
+    renderAt(t);
+    document.getElementById("clock").textContent = fmt(t) + " / 3:14";
+    if (!au.paused) document.getElementById("seek").value = t;
+    requestAnimationFrame(frame);
+  }
+  const setPlay = () => (document.getElementById("play").textContent = au.paused ? "▶ 播放" : "❚❚ 暂停");
+  document.getElementById("play").onclick = () => { au.paused ? au.play() : au.pause(); window.scrubT = au.currentTime; };
+  au.onpause = au.onplay = setPlay;
+  document.querySelectorAll("[data-t]").forEach((b) => (b.onclick = () => { window.scrubT = au.currentTime = +b.dataset.t; if (au.paused) au.play(); }));
+  document.getElementById("seek").oninput = (e) => { window.scrubT = au.currentTime = +e.target.value; };
+  requestAnimationFrame(frame);
+</script>
+</body>
+</html>

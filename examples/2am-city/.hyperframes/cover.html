@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>2AM in Your Car · Cover</title>
+<script type="importmap">
+  { "imports": { "three": "../assets/vendor/three/build/three.module.js", "three/addons/": "../assets/vendor/three/examples/jsm/" } }
+</script>
+<style>
+  @font-face { font-family: "Big Shoulders Display"; font-weight: 800; src: url("../assets/fonts/BigShouldersDisplay-800.woff2") format("woff2"); }
+  @font-face { font-family: "Big Shoulders Display"; font-weight: 300; src: url("../assets/fonts/BigShouldersDisplay-300.woff2") format("woff2"); }
+  @font-face { font-family: "IBM Plex Mono"; font-weight: 300; src: url("../assets/fonts/IBMPlexMono-300.woff2") format("woff2"); }
+  @font-face { font-family: "IBM Plex Mono"; font-weight: 500; src: url("../assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+  html, body { margin: 0; background: #111; }
+  #cover { position: relative; width: 1500px; height: 2000px; overflow: hidden; background: #03040a; transform-origin: 0 0; }
+  #gl { position: absolute; inset: 0; width: 100%; height: 100%; }
+  /* legibility: a soft night-sky falloff behind the title */
+  #shade { position: absolute; inset: 0; background: radial-gradient(120% 55% at 50% 0%, rgba(3,4,10,0.92) 0%, rgba(3,4,10,0.55) 45%, rgba(3,4,10,0) 75%); }
+  .hud { position: absolute; font: 300 26px "IBM Plex Mono"; letter-spacing: 0.04em; color: rgba(170,198,255,0.8); }
+  #tl { left: 96px; top: 84px; } #tr { right: 96px; top: 84px; text-align: right; }
+  #bl { left: 96px; bottom: 84px; } #br { right: 96px; bottom: 84px; text-align: right; }
+  .hud b { font-weight: 500; color: #ffb24f; }
+  #title { position: absolute; left: 0; right: 0; top: 150px; text-align: center; color: #f2f5ff; font-family: "Big Shoulders Display"; }
+  #t1 { font-weight: 800; font-size: 560px; line-height: 0.82; letter-spacing: -0.01em; }
+  #t2 { font-weight: 800; font-size: 150px; line-height: 1; letter-spacing: 0.06em; margin-top: 12px; }
+  #t2 span { color: #ffb24f; }
+  #tag { margin-top: 34px; font: 300 30px "IBM Plex Mono"; letter-spacing: 0.32em; color: rgba(170,198,255,0.85); }
+  #ret { position: absolute; pointer-events: none; }
+  #ret i { position: absolute; width: 26px; height: 26px; border-color: rgba(255,178,79,0.95); border-style: solid; }
+  #ret .a { left: 0; top: 0; border-width: 3px 0 0 3px; } #ret .b { right: 0; top: 0; border-width: 3px 3px 0 0; }
+  #ret .c { right: 0; bottom: 0; border-width: 0 3px 3px 0; } #ret .d { left: 0; bottom: 0; border-width: 0 0 3px 3px; }
+  #ret em { position: absolute; left: 100%; top: -6px; margin-left: 14px; font: 500 22px "IBM Plex Mono"; font-style: normal; color: #ffb24f; white-space: nowrap; }
+</style>
+</head>
+<body>
+<div id="cover">
+  <canvas id="gl" width="1500" height="2000"></canvas>
+  <div id="shade"></div>
+  <div id="title">
+    <div id="t1">2AM</div>
+    <div id="t2">IN YOUR <span>CAR</span></div>
+    <div id="tag">A CITY BUILT BY ONE SONG</div>
+  </div>
+  <div class="hud" id="tl">02:00 AM<br>● TRACKING</div>
+  <div class="hud" id="tr">BAR 77/77<br>BUILDINGS 184/184</div>
+  <div class="hud" id="bl">ONE NIGHT · ONE CITY · ONE ROUTE</div>
+  <div class="hud" id="br">SCORE <b id="score">000000</b></div>
+  <div id="ret"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><em>TGT-01</em></div>
+</div>
+<script src="../assets/song-data.js"></script>
+<script type="module">
+  import { createCity3D } from "../assets/city3d.js";
+  const q = new URLSearchParams(location.search);
+  const P = (k, d) => (q.has(k) ? +q.get(k) : d);
+  await Promise.all(["800 40px 'Big Shoulders Display'", "300 20px 'IBM Plex Mono'", "500 20px 'IBM Plex Mono'"].map((f) => document.fonts.load(f)));
+  const W = 1500, H = 2000;
+  const city = createCity3D({ canvas: document.getElementById("gl"), song: window.SONG, width: W, height: H, palette: "blueprint" });
+  const { THREE } = city;
+  window.renderCover = (o = {}) => {
+    const t = o.t ?? P("t", 171.5);
+    const pac = city.carAt(t).p;
+    const c = city.cityCentre.clone().lerp(pac, o.mix ?? P("mix", 0.35));
+    const az = o.az ?? P("az", 0.7), el = o.el ?? P("el", 1.0), r = o.r ?? P("r", 40);
+    // push the aim point away from the camera so the runner lands low in the frame
+    const push = o.push ?? P("push", 0);
+    const look = new THREE.Vector3(c.x - Math.sin(az) * push, 0, c.z - Math.cos(az) * push);
+    const pos = new THREE.Vector3(look.x + r * Math.cos(el) * Math.sin(az), r * Math.sin(el), look.z + r * Math.cos(el) * Math.cos(az));
+    const info = city.renderAt(t, { pose: { pos, look, fov: o.fov ?? P("fov", 40), up: new THREE.Vector3(0, 1, 0) }, fullTrail: o.trail ?? P("trail", 0.85) });
+    // reticle on the runner
+    const ret = document.getElementById("ret"), s = Math.max(30, info.pac.r * 3.2);
+    Object.assign(ret.style, { left: info.pac.x - s + "px", top: info.pac.y - s + "px", width: 2 * s + "px", height: 2 * s + "px", display: info.pac.on ? "block" : "none" });
+    document.getElementById("score").textContent = ("000000" + info.score).slice(-6);
+    return info;
+  };
+  window.renderCover();
+  // fit the 1500×2000 poster into the pane for review
+  const fit = () => { const k = Math.min(innerWidth / W, innerHeight / H); document.getElementById("cover").style.transform = `scale(${k})`; };
+  fit(); addEventListener("resize", fit);
+  window.coverReady = true;
+</script>
+</body>
+</html>

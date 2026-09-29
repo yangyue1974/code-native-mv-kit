@@ -1,0 +1,1482 @@
+{
+ "source": "assets/lyrics.txt aligned to parakeet+whisper timestamps",
+ "lines": [
+  {
+   "section": "Verse 1",
+   "text": "It's 2AM in your car",
+   "words": [
+    {
+     "text": "It's",
+     "start": 2.72,
+     "end": 3.2
+    },
+    {
+     "text": "2AM",
+     "start": 3.2,
+     "end": 3.84
+    },
+    {
+     "text": "in",
+     "start": 4.16,
+     "end": 4.48
+    },
+    {
+     "text": "your",
+     "start": 4.48,
+     "end": 4.8
+    },
+    {
+     "text": "car",
+     "start": 4.8,
+     "end": 7.44
+    }
+   ],
+   "start": 2.72,
+   "end": 7.44
+  },
+  {
+   "section": "Verse 1",
+   "text": "Streetlights moving on your face",
+   "interpolated_words": 2,
+   "words": [
+    {
+     "text": "Streetlights",
+     "start": 7.44,
+     "end": 8.304
+    },
+    {
+     "text": "moving",
+     "start": 8.4,
+     "end": 8.8
+    },
+    {
+     "text": "on",
+     "start": 8.8,
+     "end": 9.016
+    },
+    {
+     "text": "your",
+     "start": 9.04,
+     "end": 9.2
+    },
+    {
+     "text": "face",
+     "start": 9.76,
+     "end": 12.48
+    }
+   ],
+   "start": 7.44,
+   "end": 12.48
+  },
+  {
+   "section": "Verse 1",
+   "text": "You said we don't have to talk",
+   "interpolated_words": 1,
+   "words": [
+    {
+     "text": "You",
+     "start": 12.48,
+     "end": 12.8
+    },
+    {
+     "text": "said",
+     "start": 12.8,
+     "end": 13.16
+    },
+    {
+     "text": "we",
+     "start": 13.2,
+     "end": 13.44
+    },
+    {
+     "text": "don't",
+     "start": 13.52,
+     "end": 13.92
+    },
+    {
+     "text": "have",
+     "start": 13.92,
+     "end": 14.08
+    },
+    {
+     "text": "to",
+     "start": 14.32,
+     "end": 14.64
+    },
+    {
+     "text": "talk",
+     "start": 14.64,
+     "end": 17.36
+    }
+   ],
+   "start": 12.48,
+   "end": 17.36
+  },
+  {
+   "section": "Verse 1",
+   "text": "So I let the silence stay",
+   "words": [
+    {
+     "text": "So",
+     "start": 17.36,
+     "end": 17.52
+    },
+    {
+     "text": "I",
+     "start": 17.68,
+     "end": 17.84
+    },
+    {
+     "text": "let",
+     "start": 17.84,
+     "end": 18.0
+    },
+    {
+     "text": "the",
+     "start": 18.24,
+     "end": 18.48
+    },
+    {
+     "text": "silence",
+     "start": 18.48,
+     "end": 19.12
+    },
+    {
+     "text": "stay",
+     "start": 19.36,
+     "end": 22.24
+    }
+   ],
+   "start": 17.36,
+   "end": 22.24
+  },
+  {
+   "section": "Verse 1",
+   "text": "Your hand is close to mine",
+   "words": [
+    {
+     "text": "Your",
+     "start": 22.24,
+     "end": 22.72
+    },
+    {
+     "text": "hand",
+     "start": 22.72,
+     "end": 23.04
+    },
+    {
+     "text": "is",
+     "start": 23.04,
+     "end": 23.28
+    },
+    {
+     "text": "close",
+     "start": 23.28,
+     "end": 23.76
+    },
+    {
+     "text": "to",
+     "start": 24.0,
+     "end": 24.32
+    },
+    {
+     "text": "mine",
+     "start": 24.32,
+     "end": 26.96
+    }
+   ],
+   "start": 22.24,
+   "end": 26.96
+  },
+  {
+   "section": "Verse 1",
+   "text": "But neither one of us moves",
+   "words": [
+    {
+     "text": "But",
+     "start": 26.96,
+     "end": 27.28
+    },
+    {
+     "text": "neither",
+     "start": 27.28,
+     "end": 27.76
+    },
+    {
+     "text": "one",
+     "start": 27.76,
+     "end": 27.92
+    },
+    {
+     "text": "of",
+     "start": 27.92,
+     "end": 28.16
+    },
+    {
+     "text": "us",
+     "start": 28.16,
+     "end": 28.48
+    },
+    {
+     "text": "moves",
+     "start": 28.48,
+     "end": 31.76
+    }
+   ],
+   "start": 26.96,
+   "end": 31.76
+  },
+  {
+   "section": "Verse 1",
+   "text": "Funny how we're out of time",
+   "words": [
+    {
+     "text": "Funny",
+     "start": 31.76,
+     "end": 32.4
+    },
+    {
+     "text": "how",
+     "start": 32.64,
+     "end": 32.88
+    },
+    {
+     "text": "we're",
+     "start": 32.88,
+     "end": 33.28
+    },
+    {
+     "text": "out",
+     "start": 33.28,
+     "end": 33.52
+    },
+    {
+     "text": "of",
+     "start": 33.76,
+     "end": 34.0
+    },
+    {
+     "text": "time",
+     "start": 34.0,
+     "end": 36.56
+    }
+   ],
+   "start": 31.76,
+   "end": 36.56
+  },
+  {
+   "section": "Verse 1",
+   "text": "And still got nothing to lose",
+   "interpolated_words": 1,
+   "words": [
+    {
+     "text": "And",
+     "start": 36.56,
+     "end": 36.74
+    },
+    {
+     "text": "still",
+     "start": 36.74,
+     "end": 37.04
+    },
+    {
+     "text": "got",
+     "start": 37.04,
+     "end": 37.36
+    },
+    {
+     "text": "nothing",
+     "start": 37.36,
+     "end": 37.84
+    },
+    {
+     "text": "to",
+     "start": 37.84,
+     "end": 38.0
+    },
+    {
+     "text": "lose",
+     "start": 38.16,
+     "end": 43.12
+    }
+   ],
+   "start": 36.56,
+   "end": 43.12
+  },
+  {
+   "section": "Pre-Chorus",
+   "text": "I know tomorrow changes everything",
+   "words": [
+    {
+     "text": "I",
+     "start": 43.12,
+     "end": 43.28
+    },
+    {
+     "text": "know",
+     "start": 43.44,
+     "end": 43.6
+    },
+    {
+     "text": "tomorrow",
+     "start": 44.0,
+     "end": 44.64
+    },
+    {
+     "text": "changes",
+     "start": 45.2,
+     "end": 46.0
+    },
+    {
+     "text": "everything",
+     "start": 46.32,
+     "end": 48.64
+    }
+   ],
+   "start": 43.12,
+   "end": 48.64
+  },
+  {
+   "section": "Pre-Chorus",
+   "text": "So don't say anything",
+   "words": [
+    {
+     "text": "So",
+     "start": 48.64,
+     "end": 48.88
+    },
+    {
+     "text": "don't",
+     "start": 49.04,
+     "end": 49.76
+    },
+    {
+     "text": "say",
+     "start": 49.76,
+     "end": 50.08
+    },
+    {
+     "text": "anything",
+     "start": 50.08,
+     "end": 51.36
+    }
+   ],
+   "start": 48.64,
+   "end": 51.36
+  },
+  {
+   "section": "Chorus",
+   "text": "Just drive",
+   "words": [
+    {
+     "text": "Just",
+     "start": 52.96,
+     "end": 53.52
+    },
+    {
+     "text": "drive",
+     "start": 53.52,
+     "end": 54.64
+    }
+   ],
+   "start": 52.96,
+   "end": 54.64
+  },
+  {
+   "section": "Chorus",
+   "text": "Like we still got all night",
+   "interpolated_words": 2,
+   "words": [
+    {
+     "text": "Like",
+     "start": 54.64,
+     "end": 54.8
+    },
+    {
+     "text": "we",
+     "start": 54.96,
+     "end": 55.11
+    },
+    {
+     "text": "still",
+     "start": 55.2,
+     "end": 55.36
+    },
+    {
+     "text": "got",
+     "start": 55.68,
+     "end": 55.83
+    },
+    {
+     "text": "all",
+     "start": 55.83,
+     "end": 56.165
+    },
+    {
+     "text": "night",
+     "start": 56.202,
+     "end": 56.704
+    }
+   ],
+   "start": 54.64,
+   "end": 56.704
+  },
+  {
+   "section": "Chorus",
+   "text": "Like you still might be mine",
+   "interpolated_words": 6,
+   "words": [
+    {
+     "text": "Like",
+     "start": 56.76,
+     "end": 57.178
+    },
+    {
+     "text": "you",
+     "start": 57.224,
+     "end": 57.559
+    },
+    {
+     "text": "still",
+     "start": 57.596,
+     "end": 58.098
+    },
+    {
+     "text": "might",
+     "start": 58.154,
+     "end": 58.656
+    },
+    {
+     "text": "be",
+     "start": 58.712,
+     "end": 58.963
+    },
+    {
+     "text": "mine",
+     "start": 58.99,
+     "end": 59.409
+    }
+   ],
+   "start": 56.76,
+   "end": 59.409
+  },
+  {
+   "section": "Chorus",
+   "text": "Like this isn't goodbye",
+   "interpolated_words": 1,
+   "words": [
+    {
+     "text": "Like",
+     "start": 59.455,
+     "end": 59.874
+    },
+    {
+     "text": "this",
+     "start": 59.92,
+     "end": 60.08
+    },
+    {
+     "text": "isn't",
+     "start": 60.24,
+     "end": 60.72
+    },
+    {
+     "text": "goodbye",
+     "start": 60.72,
+     "end": 62.8
+    }
+   ],
+   "start": 59.455,
+   "end": 62.8
+  },
+  {
+   "section": "Chorus",
+   "text": "Just drive",
+   "words": [
+    {
+     "text": "Just",
+     "start": 62.8,
+     "end": 63.36
+    },
+    {
+     "text": "drive",
+     "start": 63.36,
+     "end": 64.16
+    }
+   ],
+   "start": 62.8,
+   "end": 64.16
+  },
+  {
+   "section": "Chorus",
+   "text": "Till the city turns blue",
+   "words": [
+    {
+     "text": "Till",
+     "start": 64.48,
+     "end": 64.64
+    },
+    {
+     "text": "the",
+     "start": 64.8,
+     "end": 64.96
+    },
+    {
+     "text": "city",
+     "start": 64.96,
+     "end": 65.36
+    },
+    {
+     "text": "turns",
+     "start": 65.36,
+     "end": 65.76
+    },
+    {
+     "text": "blue",
+     "start": 65.76,
+     "end": 66.56
+    }
+   ],
+   "start": 64.48,
+   "end": 66.56
+  },
+  {
+   "section": "Chorus",
+   "text": "I don't need something new",
+   "words": [
+    {
+     "text": "I",
+     "start": 66.56,
+     "end": 66.88
+    },
+    {
+     "text": "don't",
+     "start": 66.88,
+     "end": 67.2
+    },
+    {
+     "text": "need",
+     "start": 67.36,
+     "end": 67.52
+    },
+    {
+     "text": "something",
+     "start": 67.76,
+     "end": 68.24
+    },
+    {
+     "text": "new",
+     "start": 68.24,
+     "end": 69.04
+    }
+   ],
+   "start": 66.56,
+   "end": 69.04
+  },
+  {
+   "section": "Chorus",
+   "text": "I just need more of you",
+   "words": [
+    {
+     "text": "I",
+     "start": 69.04,
+     "end": 69.36
+    },
+    {
+     "text": "just",
+     "start": 69.36,
+     "end": 69.68
+    },
+    {
+     "text": "need",
+     "start": 69.68,
+     "end": 69.92
+    },
+    {
+     "text": "more",
+     "start": 70.24,
+     "end": 70.56
+    },
+    {
+     "text": "of",
+     "start": 70.56,
+     "end": 70.8
+    },
+    {
+     "text": "you",
+     "start": 70.8,
+     "end": 72.8
+    }
+   ],
+   "start": 69.04,
+   "end": 72.8
+  },
+  {
+   "section": "Chorus",
+   "text": "Tonight",
+   "words": [
+    {
+     "text": "Tonight",
+     "start": 73.49,
+     "end": 77.99
+    }
+   ],
+   "start": 73.49,
+   "end": 77.99
+  },
+  {
+   "section": "Chorus",
+   "text": "Tonight",
+   "words": [
+    {
+     "text": "Tonight",
+     "start": 77.99,
+     "end": 81.48
+    }
+   ],
+   "start": 77.99,
+   "end": 81.48
+  },
+  {
+   "section": "Verse 2",
+   "text": "Your playlist's on too low",
+   "interpolated_words": 2,
+   "words": [
+    {
+     "text": "Your",
+     "start": 83.5,
+     "end": 84
+    },
+    {
+     "text": "playlist's",
+     "start": 84,
+     "end": 85.266
+    },
+    {
+     "text": "on",
+     "start": 85.406,
+     "end": 85.752
+    },
+    {
+     "text": "too",
+     "start": 85.79,
+     "end": 86.17
+    },
+    {
+     "text": "low",
+     "start": 86.17,
+     "end": 86.55
+    }
+   ],
+   "start": 83.5,
+   "end": 86.55
+  },
+  {
+   "section": "Verse 2",
+   "text": "That song we used to overplay",
+   "words": [
+    {
+     "text": "That",
+     "start": 87.5,
+     "end": 88
+    },
+    {
+     "text": "song",
+     "start": 88,
+     "end": 88.44
+    },
+    {
+     "text": "we",
+     "start": 88.45,
+     "end": 88.71
+    },
+    {
+     "text": "used",
+     "start": 88.71,
+     "end": 89.24
+    },
+    {
+     "text": "to",
+     "start": 89.24,
+     "end": 89.5
+    },
+    {
+     "text": "overplay",
+     "start": 89.5,
+     "end": 90.56
+    }
+   ],
+   "start": 87.5,
+   "end": 90.56
+  },
+  {
+   "section": "Verse 2",
+   "text": "I watch the windows glow",
+   "interpolated_words": 1,
+   "words": [
+    {
+     "text": "I",
+     "start": 92,
+     "end": 93
+    },
+    {
+     "text": "watch",
+     "start": 93,
+     "end": 93.297
+    },
+    {
+     "text": "the",
+     "start": 93.33,
+     "end": 93.97
+    },
+    {
+     "text": "windows",
+     "start": 93.97,
+     "end": 95.46
+    },
+    {
+     "text": "glow",
+     "start": 95.46,
+     "end": 96.31
+    }
+   ],
+   "start": 92,
+   "end": 96.31
+  },
+  {
+   "section": "Verse 2",
+   "text": "And wish the night would stay",
+   "words": [
+    {
+     "text": "And",
+     "start": 97.5,
+     "end": 98
+    },
+    {
+     "text": "wish",
+     "start": 98,
+     "end": 98.32
+    },
+    {
+     "text": "the",
+     "start": 98.32,
+     "end": 98.72
+    },
+    {
+     "text": "night",
+     "start": 98.72,
+     "end": 99.38
+    },
+    {
+     "text": "would",
+     "start": 99.38,
+     "end": 100.04
+    },
+    {
+     "text": "stay",
+     "start": 100.04,
+     "end": 100.57
+    }
+   ],
+   "start": 97.5,
+   "end": 100.57
+  },
+  {
+   "section": "Pre-Chorus",
+   "text": "I know tomorrow changes everything",
+   "interpolated_words": 2,
+   "words": [
+    {
+     "text": "I",
+     "start": 104.08,
+     "end": 104.56
+    },
+    {
+     "text": "know",
+     "start": 104.56,
+     "end": 105.074
+    },
+    {
+     "text": "tomorrow",
+     "start": 105.131,
+     "end": 106.057
+    },
+    {
+     "text": "changes",
+     "start": 106.16,
+     "end": 107.28
+    },
+    {
+     "text": "everything",
+     "start": 107.28,
+     "end": 109.68
+    }
+   ],
+   "start": 104.08,
+   "end": 109.68
+  },
+  {
+   "section": "Pre-Chorus",
+   "text": "So don't say anything",
+   "words": [
+    {
+     "text": "So",
+     "start": 109.68,
+     "end": 109.92
+    },
+    {
+     "text": "don't",
+     "start": 110.08,
+     "end": 110.56
+    },
+    {
+     "text": "say",
+     "start": 110.56,
+     "end": 110.88
+    },
+    {
+     "text": "anything",
+     "start": 111.2,
+     "end": 114.0
+    }
+   ],
+   "start": 109.68,
+   "end": 114.0
+  },
+  {
+   "section": "Chorus",
+   "text": "Just drive",
+   "words": [
+    {
+     "text": "Just",
+     "start": 114.0,
+     "end": 114.56
+    },
+    {
+     "text": "drive",
+     "start": 114.56,
+     "end": 115.6
+    }
+   ],
+   "start": 114.0,
+   "end": 115.6
+  },
+  {
+   "section": "Chorus",
+   "text": "Like we still got all night",
+   "interpolated_words": 2,
+   "words": [
+    {
+     "text": "Like",
+     "start": 115.72,
+     "end": 115.87
+    },
+    {
+     "text": "we",
+     "start": 115.96,
+     "end": 116.11
+    },
+    {
+     "text": "still",
+     "start": 116.11,
+     "end": 116.526
+    },
+    {
+     "text": "got",
+     "start": 116.572,
+     "end": 116.849
+    },
+    {
+     "text": "all",
+     "start": 116.88,
+     "end": 117.03
+    },
+    {
+     "text": "night",
+     "start": 117.12,
+     "end": 118.08
+    }
+   ],
+   "start": 115.72,
+   "end": 118.08
+  },
+  {
+   "section": "Chorus",
+   "text": "Like you still might be mine",
+   "words": [
+    {
+     "text": "Like",
+     "start": 118.08,
+     "end": 118.4
+    },
+    {
+     "text": "you",
+     "start": 118.4,
+     "end": 118.55
+    },
+    {
+     "text": "still",
+     "start": 118.56,
+     "end": 118.72
+    },
+    {
+     "text": "might",
+     "start": 119.04,
+     "end": 119.28
+    },
+    {
+     "text": "be",
+     "start": 119.28,
+     "end": 119.43
+    },
+    {
+     "text": "mine",
+     "start": 119.8,
+     "end": 120.6
+    }
+   ],
+   "start": 118.08,
+   "end": 120.6
+  },
+  {
+   "section": "Chorus",
+   "text": "Like this isn't goodbye",
+   "words": [
+    {
+     "text": "Like",
+     "start": 120.6,
+     "end": 120.92
+    },
+    {
+     "text": "this",
+     "start": 120.92,
+     "end": 121.08
+    },
+    {
+     "text": "isn't",
+     "start": 121.24,
+     "end": 121.64
+    },
+    {
+     "text": "goodbye",
+     "start": 121.8,
+     "end": 121.95
+    }
+   ],
+   "start": 120.6,
+   "end": 121.95
+  },
+  {
+   "section": "Chorus",
+   "text": "Just drive",
+   "words": [
+    {
+     "text": "Just",
+     "start": 123.8,
+     "end": 124.36
+    },
+    {
+     "text": "drive",
+     "start": 124.36,
+     "end": 125.16
+    }
+   ],
+   "start": 123.8,
+   "end": 125.16
+  },
+  {
+   "section": "Chorus",
+   "text": "Till the city turns blue",
+   "words": [
+    {
+     "text": "Till",
+     "start": 125.4,
+     "end": 125.56
+    },
+    {
+     "text": "the",
+     "start": 125.72,
+     "end": 125.96
+    },
+    {
+     "text": "city",
+     "start": 125.96,
+     "end": 126.36
+    },
+    {
+     "text": "turns",
+     "start": 126.36,
+     "end": 126.84
+    },
+    {
+     "text": "blue",
+     "start": 126.84,
+     "end": 127.32
+    }
+   ],
+   "start": 125.4,
+   "end": 127.32
+  },
+  {
+   "section": "Chorus",
+   "text": "I don't need something new",
+   "words": [
+    {
+     "text": "I",
+     "start": 127.56,
+     "end": 127.88
+    },
+    {
+     "text": "don't",
+     "start": 127.88,
+     "end": 128.36
+    },
+    {
+     "text": "need",
+     "start": 128.36,
+     "end": 128.68
+    },
+    {
+     "text": "something",
+     "start": 128.68,
+     "end": 129.24
+    },
+    {
+     "text": "new",
+     "start": 129.24,
+     "end": 129.96
+    }
+   ],
+   "start": 127.56,
+   "end": 129.96
+  },
+  {
+   "section": "Chorus",
+   "text": "I just need more of you",
+   "words": [
+    {
+     "text": "I",
+     "start": 129.96,
+     "end": 130.28
+    },
+    {
+     "text": "just",
+     "start": 130.28,
+     "end": 130.6
+    },
+    {
+     "text": "need",
+     "start": 130.84,
+     "end": 131.16
+    },
+    {
+     "text": "more",
+     "start": 131.16,
+     "end": 131.48
+    },
+    {
+     "text": "of",
+     "start": 131.48,
+     "end": 131.72
+    },
+    {
+     "text": "you",
+     "start": 131.72,
+     "end": 133.8
+    }
+   ],
+   "start": 129.96,
+   "end": 133.8
+  },
+  {
+   "section": "Chorus",
+   "text": "Tonight",
+   "estimated": true,
+   "words": [
+    {
+     "text": "Tonight",
+     "start": 134.0,
+     "end": 136.2
+    }
+   ],
+   "start": 134.0,
+   "end": 136.2
+  },
+  {
+   "section": "Chorus",
+   "text": "Tonight",
+   "estimated": true,
+   "words": [
+    {
+     "text": "Tonight",
+     "start": 138.8,
+     "end": 141.0
+    }
+   ],
+   "start": 138.8,
+   "end": 141.0
+  },
+  {
+   "section": "Bridge",
+   "text": "If this is the last ride",
+   "interpolated_words": 1,
+   "words": [
+    {
+     "text": "If",
+     "start": 142.56,
+     "end": 143.12
+    },
+    {
+     "text": "this",
+     "start": 143.12,
+     "end": 143.44
+    },
+    {
+     "text": "is",
+     "start": 143.44,
+     "end": 143.76
+    },
+    {
+     "text": "the",
+     "start": 143.76,
+     "end": 144.08
+    },
+    {
+     "text": "last",
+     "start": 144.08,
+     "end": 144.4
+    },
+    {
+     "text": "ride",
+     "start": 144.4,
+     "end": 148.324
+    }
+   ],
+   "start": 142.56,
+   "end": 148.324
+  },
+  {
+   "section": "Bridge",
+   "text": "Don't take me home yet",
+   "words": [
+    {
+     "text": "Don't",
+     "start": 148.76,
+     "end": 149.48
+    },
+    {
+     "text": "take",
+     "start": 149.48,
+     "end": 150.12
+    },
+    {
+     "text": "me",
+     "start": 150.12,
+     "end": 150.44
+    },
+    {
+     "text": "home",
+     "start": 150.44,
+     "end": 150.92
+    },
+    {
+     "text": "yet",
+     "start": 151.16,
+     "end": 152.92
+    }
+   ],
+   "start": 148.76,
+   "end": 152.92
+  },
+  {
+   "section": "Final Chorus",
+   "text": "Just drive",
+   "words": [
+    {
+     "text": "Just",
+     "start": 152.92,
+     "end": 153.56
+    },
+    {
+     "text": "drive",
+     "start": 153.56,
+     "end": 154.36
+    }
+   ],
+   "start": 152.92,
+   "end": 154.36
+  },
+  {
+   "section": "Final Chorus",
+   "text": "Like we still got all night",
+   "interpolated_words": 1,
+   "words": [
+    {
+     "text": "Like",
+     "start": 154.6,
+     "end": 154.76
+    },
+    {
+     "text": "we",
+     "start": 154.92,
+     "end": 155.07
+    },
+    {
+     "text": "still",
+     "start": 155.16,
+     "end": 155.48
+    },
+    {
+     "text": "got",
+     "start": 155.48,
+     "end": 155.64
+    },
+    {
+     "text": "all",
+     "start": 155.64,
+     "end": 156.072
+    },
+    {
+     "text": "night",
+     "start": 156.12,
+     "end": 157.08
+    }
+   ],
+   "start": 154.6,
+   "end": 157.08
+  },
+  {
+   "section": "Final Chorus",
+   "text": "Like you still might be mine",
+   "words": [
+    {
+     "text": "Like",
+     "start": 157.08,
+     "end": 157.32
+    },
+    {
+     "text": "you",
+     "start": 157.32,
+     "end": 157.47
+    },
+    {
+     "text": "still",
+     "start": 157.56,
+     "end": 157.88
+    },
+    {
+     "text": "might",
+     "start": 157.88,
+     "end": 158.28
+    },
+    {
+     "text": "be",
+     "start": 158.28,
+     "end": 158.6
+    },
+    {
+     "text": "mine",
+     "start": 158.6,
+     "end": 159.64
+    }
+   ],
+   "start": 157.08,
+   "end": 159.64
+  },
+  {
+   "section": "Final Chorus",
+   "text": "Even if it's a lie",
+   "interpolated_words": 1,
+   "words": [
+    {
+     "text": "Even",
+     "start": 159.64,
+     "end": 160.04
+    },
+    {
+     "text": "if",
+     "start": 160.04,
+     "end": 160.28
+    },
+    {
+     "text": "it's",
+     "start": 160.28,
+     "end": 160.68
+    },
+    {
+     "text": "a",
+     "start": 160.68,
+     "end": 161.112
+    },
+    {
+     "text": "lie",
+     "start": 161.16,
+     "end": 162.76
+    }
+   ],
+   "start": 159.64,
+   "end": 162.76
+  },
+  {
+   "section": "Final Chorus",
+   "text": "Just drive",
+   "words": [
+    {
+     "text": "Just",
+     "start": 162.76,
+     "end": 163.32
+    },
+    {
+     "text": "drive",
+     "start": 163.32,
+     "end": 164.12
+    }
+   ],
+   "start": 162.76,
+   "end": 164.12
+  },
+  {
+   "section": "Final Chorus",
+   "text": "Till the city turns blue",
+   "words": [
+    {
+     "text": "Till",
+     "start": 164.36,
+     "end": 164.52
+    },
+    {
+     "text": "the",
+     "start": 164.68,
+     "end": 164.84
+    },
+    {
+     "text": "city",
+     "start": 164.84,
+     "end": 165.24
+    },
+    {
+     "text": "turns",
+     "start": 165.24,
+     "end": 165.72
+    },
+    {
+     "text": "blue",
+     "start": 165.72,
+     "end": 166.44
+    }
+   ],
+   "start": 164.36,
+   "end": 166.44
+  },
+  {
+   "section": "Final Chorus",
+   "text": "I don't need something new",
+   "words": [
+    {
+     "text": "I",
+     "start": 166.44,
+     "end": 166.76
+    },
+    {
+     "text": "don't",
+     "start": 166.76,
+     "end": 167.32
+    },
+    {
+     "text": "need",
+     "start": 167.32,
+     "end": 167.64
+    },
+    {
+     "text": "something",
+     "start": 167.64,
+     "end": 168.2
+    },
+    {
+     "text": "new",
+     "start": 168.2,
+     "end": 168.92
+    }
+   ],
+   "start": 166.44,
+   "end": 168.92
+  },
+  {
+   "section": "Final Chorus",
+   "text": "I just need more of you",
+   "words": [
+    {
+     "text": "I",
+     "start": 168.92,
+     "end": 169.24
+    },
+    {
+     "text": "just",
+     "start": 169.24,
+     "end": 169.56
+    },
+    {
+     "text": "need",
+     "start": 169.56,
+     "end": 169.72
+    },
+    {
+     "text": "more",
+     "start": 170.04,
+     "end": 170.36
+    },
+    {
+     "text": "of",
+     "start": 170.36,
+     "end": 170.52
+    },
+    {
+     "text": "you",
+     "start": 170.84,
+     "end": 172.68
+    }
+   ],
+   "start": 168.92,
+   "end": 172.68
+  },
+  {
+   "section": "Final Chorus",
+   "text": "Tonight",
+   "words": [
+    {
+     "text": "Tonight",
+     "start": 172.68,
+     "end": 173.99
+    }
+   ],
+   "start": 172.68,
+   "end": 173.99
+  },
+  {
+   "section": "Final Chorus",
+   "text": "Tonight",
+   "words": [
+    {
+     "text": "Tonight",
+     "start": 177,
+     "end": 178.99
+    }
+   ],
+   "start": 177,
+   "end": 178.99
+  },
+  {
+   "section": "Final Chorus",
+   "text": "Tonight",
+   "words": [
+    {
+     "text": "Tonight",
+     "start": 182,
+     "end": 183.99
+    }
+   ],
+   "start": 182,
+   "end": 183.99
+  }
+ ]
+}

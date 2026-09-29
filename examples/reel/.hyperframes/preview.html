@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><title>样片 · 预览</title>
+<style>
+      @font-face { font-family: "Noto Sans SC"; font-weight: 400; font-display: block; src: url("../assets/fonts/NotoSansSC-400-subset.woff2") format("woff2"); }
+      @font-face { font-family: "Noto Sans SC"; font-weight: 900; font-display: block; src: url("../assets/fonts/NotoSansSC-900-subset.woff2") format("woff2"); }
+      @font-face { font-family: "Big Shoulders Display"; font-weight: 800; font-display: block; src: url("../assets/fonts/BigShouldersDisplay-800.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("../assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+      @font-face { font-family: "Michroma"; font-weight: 400; font-display: block; src: url("../assets/fonts/Michroma-400.woff2") format("woff2"); }
+      @font-face { font-family: "Courier Prime"; font-weight: 700; font-display: block; src: url("../assets/fonts/CourierPrime-700.woff2") format("woff2"); }
+  body { margin: 0; background: #0b0b0e; color: #eee; font: 14px "IBM Plex Mono", monospace; }
+  .stage { position: relative; width: min(100vw, calc((100vh - 60px) * 16 / 9)); aspect-ratio: 16/9; margin: 0 auto; background: #000; }
+  .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .bar { display: flex; gap: 10px; align-items: center; justify-content: center; padding: 12px; }
+  button { background: #ff2d87; color: #fff; border: 0; border-radius: 99px; padding: 6px 18px; font: inherit; cursor: pointer; }
+  input { width: 50vw; accent-color: #ff2d87; }
+</style></head>
+<body>
+<div class="stage"><canvas id="gl" width="1920" height="1080"></canvas></div>
+<div class="bar"><button id="play">▶ 播放</button><input id="seek" type="range" min="0" max="10" step="0.01" value="0"><span id="clock"></span></div>
+<audio id="au" src="../assets/audio/track.mp3" preload="auto"></audio>
+<script src="../assets/song-data.js"></script>
+<script type="module">
+  import { createReel } from "../assets/reel.js";
+  const mode = new URLSearchParams(location.search).get("mode") || "intro";
+  await Promise.all(["400 40px 'Noto Sans SC'", "900 40px 'Noto Sans SC'", "800 40px 'Big Shoulders Display'", "500 20px 'IBM Plex Mono'", "400 40px Michroma", "700 40px 'Courier Prime'"].map((f) => document.fonts.load(f, "同一批素材ABC")));
+  const N = await createReel({ canvas: document.getElementById("gl"), song: SONG, base: "../assets", mode });
+  const au = document.getElementById("au"), seek = document.getElementById("seek"), D = N.DURATION, OFF = N.SONG_OFFSET;
+  seek.max = D; window.N = N; window.scrubV = 0;
+  function frame() {
+    let v = au.paused ? window.scrubV : au.currentTime - OFF;
+    if (!au.paused && v >= D) { au.pause(); window.scrubV = v = D - 0.001; }
+    N.render(Math.max(0, v)); document.getElementById("clock").textContent = v.toFixed(2);
+    if (!au.paused) seek.value = v; requestAnimationFrame(frame);
+  }
+  document.getElementById("play").onclick = () => { if (au.paused) { au.currentTime = OFF + (window.scrubV >= D - 0.01 ? 0 : window.scrubV); au.play(); } else { au.pause(); window.scrubV = au.currentTime - OFF; } };
+  au.onplay = au.onpause = () => (document.getElementById("play").textContent = au.paused ? "▶ 播放" : "❚❚ 暂停");
+  seek.oninput = (e) => { window.scrubV = +e.target.value; };
+  requestAnimationFrame(frame);
+</script></body></html>

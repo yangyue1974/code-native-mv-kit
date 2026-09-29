@@ -16,6 +16,7 @@ This repository vendors the following third-party files so renders are offline a
 | Newsreader | 同上 | SIL OFL 1.1 — `OFL-newsreader.txt` |
 | VT323 | 同上 | SIL OFL 1.1 — `OFL-vt323.txt` |
 | Permanent Marker | 同上 | Apache 2.0 — `Apache-2.0-permanentmarker.txt` |
+| Noto Sans SC（子集 / subset） | `examples/reel/fonts/` | SIL OFL 1.1 — `examples/reel/fonts/OFL-notosanssc.txt` |
 
 渲染工具 [HyperFrames](https://www.npmjs.com/package/hyperframes) 通过 `npx` 按需下载，不包含在本仓库中。
 

@@ -16,3 +16,6 @@ examples/*/_review/
 # outputs
 examples/*/renders/
 examples/*/snapshots/
+examples/reel/covers/img/
+examples/reel/covers/fonts/
+examples/reel/covers/vendor/

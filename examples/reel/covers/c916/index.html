@@ -1,0 +1,43 @@
+<!doctype html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="vendor/gsap/gsap.min.js"></script>
+<style>
+@font-face { font-family: ZH; font-weight: 400; font-display: block; src: url(fonts/NotoSansSC-400-cover.woff2); }
+@font-face { font-family: ZH; font-weight: 900; font-display: block; src: url(fonts/NotoSansSC-900-cover.woff2); }
+@font-face { font-family: BS; font-weight: 800; font-display: block; src: url(fonts/BigShouldersDisplay-800.woff2); }
+@font-face { font-family: PM; font-weight: 500; font-display: block; src: url(fonts/IBMPlexMono-500.woff2); }
+@font-face { font-family: MI; font-display: block; src: url(fonts/Michroma-400.woff2); }
+@font-face { font-family: CP; font-weight: 700; font-display: block; src: url(fonts/CourierPrime-700.woff2); }
+@font-face { font-family: MK; font-display: block; src: url(fonts/PermanentMarker-400.woff2); }
+html,body{margin:0;background:#050507;overflow:hidden}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#050507}
+.p{position:absolute;left:0;width:1080px;background-repeat:no-repeat;background-size:2500px auto}
+.np{top:0;height:1920px;background-image:url(img/np_4.9.png);background-position:-784px 0px;clip-path:polygon(0 0,100% 0,100% 850.0px,0 1010.0px)}
+.cf{top:0;height:1920px;background-image:url(img/cf_4.9.png);background-position:-985px 800px;clip-path:polygon(0 1010.0px,100% 850.0px,100% 100%,0 100%)}
+.seam{position:absolute;left:-20px;top:930px;width:1120px;height:6px;background:#f4f2ff;box-shadow:0 0 26px rgba(255,255,255,.9);transform:rotate(-8.488deg)}
+.fade{position:absolute;left:0;right:0;height:260px}
+.l1{position:absolute;left:54px;top:60px;padding:14px 20px;background:rgba(8,10,34,.82)}
+.l1 .n{font:800 64px/1 BS;color:#ff2d87;margin-right:14px;vertical-align:middle} .l1 .t{font:400 34px MI;color:#f4f2ff;vertical-align:middle}
+.l1 .z{display:block;font:900 30px ZH;color:#f4f2ff;margin-top:8px;letter-spacing:.08em}
+.l2{position:absolute;right:54px;bottom:176px;padding:14px 22px;background:#e9e3d3;transform:rotate(-2deg);box-shadow:0 12px 30px rgba(0,0,0,.6)}
+.l2 .n{font:800 64px/1 BS;color:#e2231a;margin-right:14px;vertical-align:middle} .l2 .t{font:900 40px ZH;color:#1a1814;vertical-align:middle}
+.l2 .z{display:block;font:700 22px CP;color:#1a1814;margin-top:6px;letter-spacing:.06em}
+.title{position:absolute;left:0;right:0;top:640px;text-align:center}
+.title .a{display:inline-block;font:900 128px/1.08 ZH;color:#fff;background:rgba(0,0,0,.86);padding:14px 30px;letter-spacing:.02em}
+.title .b{display:inline-block;font:900 128px/1.08 ZH;color:#fff;background:rgba(0,0,0,.86);padding:6px 30px 18px;margin-top:-2px}
+.title .b em{font-style:normal;color:#ff2d87} .title .b i{font-style:normal;color:#e2231a}
+.foot{position:absolute;left:0;right:0;bottom:96px;text-align:center;font:400 30px ZH;color:rgba(244,242,255,.86);letter-spacing:.2em}
+.foot b{font:500 22px PM;letter-spacing:.2em;color:rgba(244,242,255,.6);display:block;margin-top:10px}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="1" data-width="1080" data-height="1920">
+  <div class="p np"></div><div class="p cf"></div>
+  <div class="fade" style="bottom:0;background:linear-gradient(180deg,rgba(5,5,7,0),rgba(5,5,7,.92))"></div>
+  <div class="seam"></div>
+  <div class="l1"><span class="n">01</span><span class="t">NIGHT+</span><span class="z">黑夜续费服务 · 讽刺广告</span></div>
+  <div class="l2"><span class="n">02</span><span class="t">案卷 0214</span><span class="z">SUBJECT 07 · STATUS: OPEN</span></div>
+  <div class="title"><div class="a">同一批素材</div><br><div class="b"><em>两</em>部片<i>子</i></div></div>
+  <div class="foot">全程代码渲染 · 72 秒<b>2AM IN YOUR CAR · CLAUDE × HYPERFRAMES</b></div>
+</div>
+<script>window.__timelines = window.__timelines || {}; window.__timelines["main"] = gsap.timeline({ paused: true });</script>
+</body></html>

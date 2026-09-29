@@ -5,7 +5,7 @@
 <p align="center">
   <b>Music videos cut in code.</b> One song, three films, two Claude skills. The AI directs and edits, and every frame lands on a beat and a word.<br>
   <a href="README.md">中文</a> ·
-  <a href="https://github.com/yangyue1974/code-native-mv-kit/releases/latest">Watch the films</a> ·
+  <a href="https://github.com/yangyue1974/code-native-mv-kit/releases">Watch the films</a> ·
   <a href="#quick-start">Quick start</a>
 </p>
 
@@ -74,7 +74,24 @@ A subscription that keeps 2 AM from ever ending: Maybe Mode, Goodbye Blocker, Su
 
 → skill [`plates-to-film`](skills/plates-to-film/SKILL.md) · source [`examples/case-0214`](examples/case-0214)
 
-Full-quality films and the 3:4 poster are under [Releases](https://github.com/yangyue1974/code-native-mv-kit/releases/latest).
+### 04 · The sample reel: both films as one (72 s)
+
+<img src="docs/media/reel.gif" width="100%">
+
+A single cut for streaming: **10 s opener → NIGHT+ → 2 s bridge → CASE FILE 0214**.
+
+- **The opener** first fills the screen with the 16 raw plates and 5 raw clips: this is all there was. Then one shot splits in two, the NIGHT+ version and the CASE FILE version playing in sync, with the divider jumping on the beat. Each film flashes a teaser, and "看到最后" ("watch to the end") lands in the two bars where the music holds its breath.
+- **The bridge** sweeps a copier light across her shot from NIGHT+, turning it into the same shot from CASE FILE, then stamps a red "02".
+- **The music never breaks.** The opener plays the 10 seconds of the song right before NIGHT+ starts, and the bridge plays the 2 seconds right before CASE FILE starts. Butted together, the song simply keeps going.
+- **The pictures come from the finished films.** Every shot in the opener and the bridge is lifted straight from the two rendered films.
+
+| Bridge | Vertical cover 3:4 | Vertical cover 9:16 |
+|---|---|---|
+| <img src="docs/media/reel-bridge.jpg"> | <img src="docs/media/reel-cover-3x4.jpg"> | <img src="docs/media/reel-cover-9x16.jpg"> |
+
+→ source [`examples/reel`](examples/reel) · reproduce with `bash scripts/build-reel.sh`
+
+Downloads: the three films and the MV poster are in [v1.0.0](https://github.com/yangyue1974/code-native-mv-kit/releases/tag/v1.0.0); the 72 s reel, opener, bridge and vertical covers are in [v1.1.0](https://github.com/yangyue1974/code-native-mv-kit/releases/tag/v1.1.0).
 
 ## The two skills
 
@@ -116,6 +133,8 @@ npx --yes hyperframes@0.8.82 render -o renders/case-0214.mp4 -q delivery -f 30 -
 ```
 
 A 30-second film renders in about a minute on an Apple Silicon Mac. The 3:14 MV in `examples/2am-city` takes about two.
+
+For the 72 s reel, run `bash scripts/build-reel.sh`. It renders the two films first if needed, then the opener, the bridge and both vertical covers, and joins everything into `examples/reel/renders/sample-reel-72s.mp4`. The whole run takes about five minutes.
 
 **Install the skills and make your own**
 
@@ -160,9 +179,11 @@ examples/
   2am-city/            film 01, full project (incl. the 3:4 poster composition in cover/)
   night-plus/          film 02
   case-0214/           film 03
+  reel/                04 the sample reel: opener, bridge, vertical covers
 media/                 song, lyrics, song data, 16 plates, 5 clips, the asset prompts (CC BY-NC 4.0)
 docs/                  cover, GIFs, stills
 scripts/setup.sh       fills in the three examples
+scripts/build-reel.sh  builds the 72 s sample reel
 ```
 
 ## License

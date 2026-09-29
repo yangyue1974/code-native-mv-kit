@@ -5,7 +5,7 @@
 <p align="center">
   <b>用代码剪音乐视频。</b>一首歌，三部片子，两个 Claude 技能：让 AI 当导演兼剪辑，每一帧都卡在节拍和歌词上。<br>
   <a href="README.en.md">English</a> ·
-  <a href="https://github.com/yangyue1974/code-native-mv-kit/releases/latest">下载成片</a> ·
+  <a href="https://github.com/yangyue1974/code-native-mv-kit/releases">下载成片</a> ·
   <a href="#快速开始">快速开始</a>
 </p>
 
@@ -75,7 +75,24 @@ AI 生成的素材只当底片，外面再套一层真实介质的“涂层”�
 
 → 技能 [`plates-to-film`](skills/plates-to-film/SKILL.md) · 源码 [`examples/case-0214`](examples/case-0214)
 
-高清成片和 3:4 海报在 [Releases](https://github.com/yangyue1974/code-native-mv-kit/releases/latest)。
+### 04 · 样片合集：两部片子接成一支（72 秒）
+
+<img src="docs/media/reel.gif" width="100%">
+
+用来发流媒体的合集：**开场 10 秒 → NIGHT+ → 转场 2 秒 → 案卷 0214**。
+
+- **开场**：先把 16 张原图和 5 段原始视频铺满画面，告诉观众“原料就这些”。然后同一个镜头被劈成两半，左边 NIGHT+ 版、右边案卷版同步播放，分界线跟着节拍跳。两部片子各闪一组预告，最后在音乐停住的两拍里打出“看到最后”。
+- **转场**：NIGHT+ 里她的彩色镜头，被一道扫描光扫成案卷里同一个镜头的黑白红唇版，再盖上红色“02”。
+- **音乐不断**：开场用的是 NIGHT+ 之前的那 10 秒歌，转场用的是案卷之前的那 2 秒。四段首尾相接，歌是连着唱下去的。
+- **画面取自成片本身**：开场和转场里的镜头，都是直接从两部渲染好的成片里取出来的。
+
+| 转场 | 竖屏封面 3:4 | 竖屏封面 9:16 |
+|---|---|---|
+| <img src="docs/media/reel-bridge.jpg"> | <img src="docs/media/reel-cover-3x4.jpg"> | <img src="docs/media/reel-cover-9x16.jpg"> |
+
+→ 源码 [`examples/reel`](examples/reel) · 一键复现 `bash scripts/build-reel.sh`
+
+下载：三部高清成片和 MV 海报在 [v1.0.0](https://github.com/yangyue1974/code-native-mv-kit/releases/tag/v1.0.0)；72 秒样片、开场、转场和竖屏封面在 [v1.1.0](https://github.com/yangyue1974/code-native-mv-kit/releases/tag/v1.1.0)。
 
 ## 两个技能
 
@@ -116,6 +133,8 @@ npx --yes hyperframes@0.8.82 render -o renders/case-0214.mp4 -q delivery -f 30 -
 ```
 
 30 秒的片子在 M 系列芯片的 Mac 上大约一分钟渲染完。3 分 14 秒的 MV 在 `examples/2am-city`，大约两分钟。
+
+72 秒样片合集：运行 `bash scripts/build-reel.sh`。两部片子还没渲染的话会先渲染，再做开场、转场和两张竖屏封面，最后接成 `examples/reel/renders/sample-reel-72s.mp4`，一共五分钟左右。
 
 **安装技能，做你自己的片子**
 
@@ -165,9 +184,11 @@ examples/
   2am-city/            作品 01 的完整工程（含 3:4 海报合成 cover/）
   night-plus/          作品 02
   case-0214/           作品 03
+  reel/                04 样片合集：开场、转场、竖屏封面
 media/                 歌曲、歌词、歌曲数据、16 张底片、5 段视频、素材提示词（CC BY-NC 4.0）
 docs/                  封面、动图、截图
 scripts/setup.sh       一键补齐三个示例
+scripts/build-reel.sh  一键做出 72 秒样片合集
 ```
 
 ## 许可证

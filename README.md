@@ -102,10 +102,26 @@ AI 生成的素材只当底片，外面再套一层真实介质的“涂层”�
 | 画面从哪来 | Three.js 程序化场景 | 你用 AI 生成的图片和短视频 |
 | 代码负责 | 世界、镜头、歌词、界面 | 涂层（去塑料感）、剪辑、转场、所有图形和文字 |
 | 关键方法 | 让音乐“盖”世界而不是“晃”世界；长镜头跟随主角 | 选一个自带图形语言的类型概念；同一批素材每个维度都换一遍，就能剪出新片 |
-| 附带 | 歌词对齐、歌曲数据打包、镜头平滑度检测 | 素材提示词模板、两套引擎、涂层配方、导入和收尾脚本 |
+| 附带 | 歌词对齐、歌曲数据打包、镜头平滑度检测 | 素材流水线 plates（image2 + 可灵）、两套引擎、涂层配方、导入和收尾脚本 |
 
 两个技能里都写进了做片过程中被否掉的方向，以及原因，比如“照片写实方向太死板”“代码建的剪纸城市很难看”“情侣开车太俗套”。
 下一次不用再走一遍。
+
+## 自动生成素材：plates 流水线
+
+`plates-to-film` 自带一条素材流水线：**image2 画图，可灵出视频，Claude 筛选选定**，最后交出一套可以直接剪的成品。
+
+```
+镜头表 shots.toml → plates plan（报预算）→ plates images（image2 出候选）→ Claude 逐张检查并选定
+→ plates videos（可灵以选定的图为首帧出视频）→ 选定 → sucai/P01.png、V01.mp4 → 导入、剪辑、渲染
+```
+
+- **image2**：走 [OpenRouter](https://openrouter.ai) 的 `openai/gpt-image-2`，长提示词逐条都能落实，带上定妆照后人物很稳。实测 16:9 中等画质每张约 0.044 美元。
+- **可灵**：走[官方命令行工具](https://klingai.com/app/mcp/guide)，以选定的图为首帧出视频。4.0 Flash 720p 实测每秒约 6 灵感值；会员还能出 1080p、一次出多条，并拿到无水印版本。
+- **护栏**：花钱的命令不加 `--yes` 只预览；每一笔都记进账本；任务提交后不能取消，所以每批开跑前先报预算。
+- **key 只在你自己电脑上**：复制 OpenRouter key 后运行 `plates setkey`，它从剪贴板存进 `~/.config/plate-pipeline/`（权限 600），并清空剪贴板。key 不经过对话，也不会进仓库。
+
+安装：`bash skills/plates-to-film/scripts/install_plates.sh`。示例镜头表在 [`examples/pipeline-demo`](examples/pipeline-demo/shots.toml)。实测数据和两种模型各自的提示词写法，见 [`generation.md`](skills/plates-to-film/references/generation.md)。
 
 ## 快速开始
 
@@ -185,6 +201,7 @@ examples/
   night-plus/          作品 02
   case-0214/           作品 03
   reel/                04 样片合集：开场、转场、竖屏封面
+  pipeline-demo/       plates 流水线的示例镜头表
 media/                 歌曲、歌词、歌曲数据、16 张底片、5 段视频、素材提示词（CC BY-NC 4.0）
 docs/                  封面、动图、截图
 scripts/setup.sh       一键补齐三个示例

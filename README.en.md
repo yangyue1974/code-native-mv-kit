@@ -101,11 +101,27 @@ Downloads: the three films and the MV poster are in [v1.0.0](https://github.com/
 | Picture comes from | A procedural Three.js scene | Your AI-generated images and short clips |
 | Code does | World, camera, lyrics, HUD | The coating (kills the plastic look), the cut, transitions, all type and graphics |
 | Key idea | Music *builds* the world instead of shaking it; a long take follows a protagonist | Pick a genre that brings its own graphic language; re-cut the same assets by changing every axis |
-| Ships with | Lyric alignment, song-data packing, camera smoothness audit | Asset prompt template, two engines, coating recipes, ingest and finishing scripts |
+| Ships with | Lyric alignment, song-data packing, camera smoothness audit | The `plates` pipeline (image2 + Kling), two engines, coating recipes, ingest and finishing scripts |
 
 Both skills also record the directions that were rejected while making these films, and why: "photoreal parallax is too rigid", "a code-modelled paper city is ugly", "a couple driving is a cliché". Nobody has to walk those roads again.
 
 The skills are written in Chinese (the author's language); Claude reads and follows them fine in any language and will talk to you in yours.
+
+## Generating the plates: the `plates` pipeline
+
+`plates-to-film` ships a plate pipeline: **image2 draws the stills, Kling animates them, and Claude screens and picks**. The result is a set of files ready to cut.
+
+```
+shots.toml → plates plan (budget) → plates images (image2 candidates) → Claude checks each one and picks
+→ plates videos (Kling, first frame = the picked still) → pick → sucai/P01.png, V01.mp4 → ingest, cut, render
+```
+
+- **image2** runs through [OpenRouter](https://openrouter.ai) as `openai/gpt-image-2`. It follows long prompts point by point, and it holds the character steady when given a reference portrait. Measured cost: about $0.044 per 16:9 image at medium quality.
+- **Kling** runs through its [official CLI](https://kling.ai/app/mcp/guide), using the picked still as the first frame. Kling 4.0 Flash at 720p measured about 6 credits per second. Members also get 1080p, batches, and watermark-free downloads.
+- **Guard rails**: every paid command only previews unless you pass `--yes`, every spend goes into a ledger, and submitted jobs can't be cancelled, so the budget is reported before each batch runs.
+- **Your key stays on your machine**: copy your OpenRouter key and run `plates setkey`. It saves the key from the clipboard to `~/.config/plate-pipeline/` (mode 600) and clears the clipboard. The key never passes through the chat or the repo.
+
+Install with `bash skills/plates-to-film/scripts/install_plates.sh`. There is an example shot list in [`examples/pipeline-demo`](examples/pipeline-demo/shots.toml). Measured numbers and prompt-writing rules for each model are in [`generation.md`](skills/plates-to-film/references/generation.md) (Chinese).
 
 ## Quick start
 
@@ -180,6 +196,7 @@ examples/
   night-plus/          film 02
   case-0214/           film 03
   reel/                04 the sample reel: opener, bridge, vertical covers
+  pipeline-demo/       an example shot list for the plates pipeline
 media/                 song, lyrics, song data, 16 plates, 5 clips, the asset prompts (CC BY-NC 4.0)
 docs/                  cover, GIFs, stills
 scripts/setup.sh       fills in the three examples

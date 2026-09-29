@@ -1,0 +1,33 @@
+# 流水线示例：一个图片镜头（image2，带定妆照）+ 一个视频镜头（可灵，以选定的图为首帧）。
+# 用法：cd examples/pipeline-demo && plates plan && plates images --yes && plates pick P16=… && plates videos --yes
+[project]
+name = "流水线测试"
+out = "sucai"
+style = """照片级写实的高端汽车广告大片，35毫米变形宽银幕镜头拍摄。深午夜蓝和电光钴蓝色调，点缀暖琥珀色灯光，高对比，浅景深，轻微胶片颗粒，16:9，画面里不要任何文字、标志和水印。"""
+character = """女主角与参考图中是同一个人：二十八九岁的东亚女性，利落的黑色齐刘海波波头，银色小圈耳环，宽大的黑色皮夹克，白色背心，淡而有光泽的妆容，神情平静、略带忧郁。"""
+character_refs = ["../../media/plates/P03.png"]   # 定妆照：仓库里的原始 P03
+
+[defaults.image]
+model = "openai/gpt-image-2"
+aspect = "16:9"
+quality = "medium"
+n = 3
+
+[defaults.video]
+model = "kling-video-v4_0_flash"
+duration = 5
+resolution = "720p"
+
+[[shot]]
+id = "P16"
+kind = "image"
+character = true
+note = "车内中央后视镜里的她"
+prompt = """深夜行驶中的车内，车内中央后视镜（挂在挡风玻璃上方）的特写，镜子里映出她的眼睛和齐刘海，她正看着后方；挡风玻璃外是虚化的琥珀色和钴蓝色城市灯光。"""
+
+[[shot]]
+id = "V16"
+kind = "video"
+from = "P16"
+note = "后视镜里眨眼"
+prompt = """机位固定不动。镜子里的她慢慢眨一下眼，然后把视线移向镜头。窗外的城市灯光虚化光斑缓慢移动。"""

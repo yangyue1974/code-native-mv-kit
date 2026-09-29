@@ -1,12 +1,13 @@
 ---
 name: plates-to-film
 description: >
-  用“生成素材 + 代码渲染”做 30 秒左右的音乐短片/广告大片：用户用 AI 生成一批图片和几段短视频当底片，
+  用“生成素材 + 代码渲染”做 30 秒左右的音乐短片/广告大片：AI 生成一批图片和几段短视频当底片
+  （可由自带的 plates 流水线自动生成：image2 画图、可灵出视频，Claude 筛选选定；也可由用户手动生成），
   Claude 当导演兼剪辑，用 HyperFrames + Three.js 把它们剪成卡在节拍和逐词歌词上的成片——
   全片加一层渲染“涂层”盖掉 AI 塑料感，再用一个有自己图形语言的类型概念（讽刺广告、侦探案卷……）
   让代码图形讲故事。同一批素材还能剪出完全不同的第二部、第三部。
   只要用户想拿 AI 生成的图/视频配一首歌做短片、MV 片段、广告感短视频、“不要像 AI 短剧”的东西，
-  或者说“用这些素材再剪一个不一样的”“给我素材提示词”，就用这个技能——即使没提 HyperFrames。
+  或者说“用这些素材再剪一个不一样的”“给我素材提示词”“自动生成素材”，就用这个技能——即使没提 HyperFrames。
   整首歌、纯代码生成世界的 MV 用 code-native-mv。
 ---
 
@@ -41,9 +42,12 @@ description: >
 | --- | --- |
 | `references/concept-playbook.md` | 选概念时读：类型库、同素材多片的“全维度不同”矩阵、被否掉的方向 |
 | `references/asset-prompts.md` | 写素材提示词时读：统一设定、给代码留位置、视频首帧、命名交付 |
+| `references/generation.md` | 自动生成素材时读：plates 流水线的安装、镜头表、筛选选定的纪律、实测单价，以及 image2 和可灵各自的提示词写法 |
 | `references/coatings.md` | 写涂层前读：印刷网点涂层、银盐单色保留涂层的做法和参数，以及怎么设计新涂层 |
 | `references/cut-grammar.md` | 写剪辑前读：两种引擎（镜头引擎、桌面引擎），节拍对位规则，转场和图形手法清单 |
 | `references/pitfalls.md` | 预览、渲染、交付前读：踩过的坑 |
+| `scripts/plates.py`（命令 `plates`）| 素材流水线：镜头表 → image2 出图 → 选定 → 可灵出视频 → 成品；花钱命令都要 `--yes`，每笔记账 |
+| `scripts/install_plates.sh` | 安装 `plates` 命令，并检查可灵命令行工具和 OpenRouter key 是否就绪 |
 | `scripts/new_project.sh` | 建项目：复制引擎、依赖库、字体、预览页、合成 |
 | `scripts/ingest.sh` | 收素材：图片改名、视频按 30fps 抽帧、帧数清单、素材总览图 |
 | `scripts/segment_timing.py` | 列段落和歌词（挑片段）；打印片段内的拍点、强拍、鼓点、逐词时间 |
@@ -63,11 +67,20 @@ description: >
 2. **定概念**（读 concept-playbook）。给用户 3 到 5 个大胆、不俗的方案，每个一句话说清类型、主角、结尾反转，
    再说推荐哪个、为什么。用户第一次做时会让你拍板，那就带着理由直接定。
 
-3. **写素材清单**（读 asset-prompts）。出一份中文的 `素材清单.md`：统一设定、每个镜头的提示词、视频首帧、命名、交付目录。
+3. **写镜头表**（读 asset-prompts 和 generation）。把每个镜头的提示词写进 `shots.toml`（`plates init` 生成模板）：
+   统一设定、女主角和定妆照、每个镜头的提示词、视频镜头用哪张图当首帧。
    一开始就想好这批素材还能剪哪些别的片子：多要特写、屏幕、留白、光源，少要只能用一次的剧情画面。
+   用户想自己手动生成时，把同样的内容写成中文 `素材清单.md` 交给他。
 
-4. **收素材。** 用户说“准备好了”以后，先 `new_project.sh <目录> <shot|desk> <mp3> <song-data.js>`，
-   再 `ingest.sh <素材目录> <项目>`。打开 `_review/plates.jpg` 和各视频条，给每张图记下：
+4. **生成并收素材。**
+   - **自动生成**：先 `plates plan`，把数量和预算报给用户，同意后按顺序执行：
+     1. `plates images --yes`，出图片候选。
+     2. **你来筛选并选定**：`plates pick`，然后汇报选了哪张、为什么。
+     3. `plates videos --yes`，以选定的图为首帧出视频。
+     4. 逐帧检查视频，再 `plates pick`。
+   - **手动**：用户说“准备好了”。
+   
+   然后 `new_project.sh <目录> <shot|desk> <mp3> <song-data.js>`，再 `ingest.sh <素材目录> <项目>`。打开 `_review/plates.jpg` 和各视频条，给每张图记下：
    主体位置、屏幕四角（要贴界面的话）、留白区、红色和蓝色元素、适合配哪句歌词。这些坐标就是后面所有标注的锚点。
 
 5. **拿时间。** `segment_timing.py <song-data.js> <起点> 30`，把拍点、强拍、逐词和底鼓抄进计划。
